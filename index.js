@@ -7,8 +7,10 @@ const { Client, GatewayIntentBits } = require('discord.js');
 // Créer une instance de client avec des intents
 const client = new Client({
     intents: [
+        GatewayIntentBits.DirectMessages,
         GatewayIntentBits.Guilds,
-        GatewayIntentBits.GuildMessages
+        GatewayIntentBits.GuildMessages,
+        GatewayIntentBits.MessageContent,
     ]
 });
 
