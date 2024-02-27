@@ -1,6 +1,7 @@
 require('dotenv').config();
 
 const { Client, GatewayIntentBits } = require('discord.js');
+const axios = require('axios');
 
 
 
@@ -27,6 +28,31 @@ client.on('messageCreate', message => {
       message.channel.send('Pong.');
   }
 });
+
+
+// client.on('messageCreate', async message => {
+//   if (!message.author.bot && message.content.startsWith('!chat')) {
+//     const userMessage = message.content.slice('!chat'.length).trim();
+
+//     try {
+//       const response = await axios.post('https://api.openai.com/v1/engines/davinci-codex/completions', {
+//         prompt: userMessage,
+//         max_tokens: 150
+//       }, {
+//         headers: {
+//           'Authorization': `Bearer ${process.env.OPENAI_API_KEY}`
+//         }
+//       });
+
+//       const reply = response.data.choices[0].text.trim();
+//       message.reply(reply);
+//     } catch (error) {
+//       console.error('Erreur lors de la connexion à OpenAI:', error);
+//       message.reply("Désolé, je n'ai pas pu obtenir une réponse de ChatGPT.");
+//     }
+//   }
+// });
+
 
 
 
