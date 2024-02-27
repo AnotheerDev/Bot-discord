@@ -13,13 +13,19 @@ const client = new Client({
 });
 
 client.once('ready', () => {
-    console.log('Ready!');
+  console.log('Ready!');
 });
 
 client.on('messageCreate', message => {
-    if (message.content === '!ping') {
-        message.channel.send('Pong.');
-    }
+  // Ignore les messages provenant des bots
+  if (message.author.bot) return; 
+  console.log(`Message reçu: ${message.content}`);
+  if (message.content === '!ping') {
+      console.log('Commande !ping détectée');
+      message.channel.send('Pong.');
+  }
 });
+
+
 
 client.login(process.env.BOT_TOKEN);
