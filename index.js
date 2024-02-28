@@ -19,6 +19,8 @@ client.once('ready', () => {
   console.log('Ready!');
 });
 
+client.on('error', console.error);
+
 client.on('messageCreate', message => {
   // Ignore les messages provenant des bots
   if (message.author.bot) return; 
